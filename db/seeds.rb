@@ -10,7 +10,7 @@
 
 user1 = User.create(email: "chevalier@live.fr", password: "jojojojo")
 user2 = User.create(email: "mat@live.fr", password: "matmat")
-user3 = User.create(email: "roger@live.fr", password: "rogerroger")
+user3 = User.create(email: "roger@live.fr", password: "rogerroger", first_name: "roger", last_name: "scott")
 
 place1 = Place.new(name: "lewagon", city: "Paris", country: "france")
 place1.user = user1
