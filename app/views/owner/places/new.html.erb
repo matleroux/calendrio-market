@@ -1,14 +1,9 @@
-<%= simple_form_for([@owner, @place], url: owner_places_path) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :city %>
-  <%= f.input :country %>
-  <%= f.input :max_capacity %>
-  <%= f.input :description %>
-  <%= f.input :availability %>
-  <%= f.input :price %>
-
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>Create a new place</h1>
+      <%= render 'form' %>
+      <%= link_to 'Back', owner_places_path %>
+    </div>
+  </div>
+</div>

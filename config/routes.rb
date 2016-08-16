@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'places#home'
 
+  mount Attachinary::Engine => "/attachinary"
+  devise_for :users
+
+  root to: 'places#home'
   resources :places do
     resources :bookings
   end
@@ -11,7 +13,9 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
-  resources :bookings, only: [:index, :show]
+  resources :bookings
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
