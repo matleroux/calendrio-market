@@ -1,0 +1,10 @@
+<h1>My list of places</h1>
+<ul>
+  <% @places.each do |place| %>
+    <li>
+      <h2><%= place.name %></h2>
+      <p><%= place.address %></p>
+      <p><%= place.city %></p>
+    </li>
+  <% end %>
+</ul>
