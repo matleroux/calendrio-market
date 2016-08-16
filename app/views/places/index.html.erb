@@ -5,9 +5,7 @@
       <h2><%= place.name %></h2>
       <p><%= place.address %></p>
       <p><%= place.city %></p>
-      <% place.photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-      <% end %>
+      <p><%= place.max_capacity %></p>
     </li>
   <% end %>
 </ul>
