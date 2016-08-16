@@ -1,0 +1,15 @@
+<%= simple_form_for([@owner, @place], url: owner_places_path) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :country %>
+  <%= f.input :photos, as: :attachinary %>
+  <%= f.input :max_capacity %>
+  <%= f.input :description %>
+  <%= f.input :availability %>
+  <%= f.input :price %>
+
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

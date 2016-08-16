@@ -20,6 +20,6 @@ class Owner::PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :address, :city, :country, :max_capacity, :price, :availability, :description)
+    params.require(:place).permit(:name, :address, :city, :country, :max_capacity, :price, :availability, :description, photos: [])
   end
 end
