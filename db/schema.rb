@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 20160816190140) do
     t.integer  "duration"
     t.integer  "number_of_participants"
     t.datetime "start_time"
-    t.string   "status"
     t.integer  "place_id"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "status",                 default: 0
     t.index ["place_id"], name: "index_bookings_on_place_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end

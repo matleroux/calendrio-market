@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
+
   root to: 'places#home'
   resources :places do
     resources :bookings

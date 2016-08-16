@@ -9,7 +9,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Button Navigation -->
-    <%= link_to 'Add a place', root_path, class:'btn btn-primary' %>
+    <%= link_to 'Add a place', new_owner_place_path, class:'btn btn-primary' %>
 
     <!-- link Navigation -->
     <%= link_to 'My booking', bookings_path, class:'navbar-wagon-item navbar-wagon-link' %>
@@ -20,7 +20,7 @@
         <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to 'Modify my profil', edit_user_registration_path %></li>
-          <li><%= link_to 'My places', root_path %></li>
+          <li><%= link_to 'My places', owner_places_path %></li>
           <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
