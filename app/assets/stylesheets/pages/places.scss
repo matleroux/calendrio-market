@@ -1,0 +1,13 @@
+.place .flex-column {
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+}
+
+
+#place-description {
+  padding: 10px;
+  li {
+    padding: 10px;
+  }
+}

@@ -1,14 +1,35 @@
 <div id="header-place">
   PHOTO
 </div>
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8">
-
-      </div>
-      <div class="col-xs-4">
-
+<div class="place">
+  <div class="wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="flex-column">
+            <ul class="list-unstyled" id="place-description">
+              <li><h2><%= @place.name %></h2></li>
+              <li><%= @place.address %></li>
+              <li><%= @place.max_capacity %></li>
+            </ul>
+            <ul class="list-unstyled" id="place-description">
+              <li><%= @place.description %></li>
+              <li><%= @place.availability %></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <p> <strong>Price : <%= @place.price %> $R</strong></p>
+          <%= simple_form_for @booking do |f| %>
+          <ul class="list-unstyled">
+            <li><%= f.input :start_time %></li>
+            <li><%= f.input :duration %></li>
+            <li><%= f.input :number_of_participants %></li>
+            <%= f.input :place_id, :as => :hidden, :input_html => { :value => "#{@place.id}" } %>
+            <li><%= f.button :submit, class:'btn btn-primary', title:'Book' %></li>
+          </ul>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
