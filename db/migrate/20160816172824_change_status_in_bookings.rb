@@ -1,5 +1,6 @@
 class ChangeStatusInBookings < ActiveRecord::Migration[5.0]
   def change
-    change_column :bookings, :status, :integer, default: 0
+    remove_column :bookings, :status
+    add_column :bookings, :status, :integer, default: 0
   end
 end
