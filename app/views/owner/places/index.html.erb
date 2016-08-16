@@ -1,13 +1,33 @@
-<h1>My list of places</h1>
-<ul>
-  <% @places.each do |place| %>
-    <li>
-      <h2><%= place.name %></h2>
-      <p><%= place.address %></p>
-      <p><%= place.city %></p>
-      <% place.photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<h1 class="text-center">My list of Places</h1>
+
+<div class="text-center padded">
+  <%= link_to "Add a place", new_owner_place_path, class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @places.each do |place| %>
+      <%= link_to place_path(place) do %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card text-center">
+            <% if place.photos.first %>
+              <div class="card" style="background-image: url('<%= cl_image_path place.photos.first.path %>')">
+              </div>
+            <% else %>
+              <div class="card" style="background-image: url('<%= image_path 'meeting.jpeg' %>')">
+              </div>
+            <% end %>
+            <div class="card-category"><%= place.city %></div>
+            <div class="card-description">
+                <h2><%= place.name %></h2>
+                <p>Very cool stuff, useful and smart</p>
+            </div>
+<!--             <div class="card-link">
+              <%= link_to place.name, place_path(place) %>
+            </div> -->
+          </div>
+        </div>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    <% end %>
+  </div>
+</div>
