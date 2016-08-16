@@ -20,7 +20,6 @@ class BookingsController < ApplicationController
     @booking.status = 0
     @booking.save
     redirect_to root_path
-    raise
   end
 
   def edit
