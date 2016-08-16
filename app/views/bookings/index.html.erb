@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <% @bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+      <div class="col-xs-12" >
+        <div class="list-unstyled" id="booking-card">
+          <h3> <%= booking.place.name %> </h3> </li>
+          <br>
+          <li> start_time: <%= booking.start_time %>  </li>
+          <li> duration: <%= booking.duration %> </li>
+          <br>
+          <li><%= booking.place.address %></li>
+          <li><%= booking.place.country %></li>
+          <li><%= booking.place.city %></li>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
