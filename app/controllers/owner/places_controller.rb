@@ -4,17 +4,32 @@ class Owner::PlacesController < ApplicationController
   end
 
   def new
-    @place = Place.new
+    @place = current_user.places.new
   end
 
   def create
-    @place = Place.new(place_params)
-    @place.user = current_user
+    @place = current_user.places.new(place_params)
     if @place.save
       redirect_to owner_places_path
     else
       render :new
     end
+  end
+
+  def edit
+    @place = current_user.places.find(params[:id])
+  end
+
+  def update
+    @place = current_user.places.find(params[:id])
+    @place.update(place_params)
+    redirect_to owner_places_path
+  end
+
+  def destroy
+    @place = current_user.places.find(params[:id])
+    @place.destroy
+    redirect_to owner_places_path
   end
 
   private
