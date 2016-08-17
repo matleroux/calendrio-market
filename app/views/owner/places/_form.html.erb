@@ -4,11 +4,11 @@
 <%= f.input :address %>
 <%= f.input :city %>
 <%= f.input :country %>
-<%= f.input :photos, as: :attachinary %>
+<%= f.input :photos, as: :attachinary, label: "photos (max 10Mb)" %>
 <%= f.input :max_capacity %>
 <%= f.input :description %>
 <%= f.input :availability %>
-<%= f.input :price %>
+<%= f.input :price, label: "Pricing in USD/hour" %>
 
 <%= f.button :submit, class: "btn btn-primary" %>
 

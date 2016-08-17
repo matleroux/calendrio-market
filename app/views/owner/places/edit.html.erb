@@ -5,6 +5,7 @@
       <%= simple_form_for([@owner, @place], url: owner_place_path) do |f| %>
         <%= render partial: 'form', locals: {f: f} %>
       <% end %>
+      <br>
       <%= link_to 'Back', owner_places_path %>
     </div>
   </div>
