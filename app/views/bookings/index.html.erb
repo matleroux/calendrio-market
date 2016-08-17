@@ -2,22 +2,27 @@
   <div class="container-fluid">
     <div class="row">
       <% @bookings.each do |booking| %>
-      <%= link_to booking_path(booking) do %>
       <div class="col-xs-12" >
         <div class="flex-container">
-          <div class="list-unstyled" id="booking-card">
-            <li> <h1> <strong><%= booking.place.name %></strong> </h1> </li>
+        <div class="list-unstyled" id="booking-card">
+            <li>
+              <%= link_to place_path(booking.place) do %>
+              <h1> <strong><%= booking.place.name %></strong> </h1>
+              <% end %>
+            </li>
             <br>
+            <%= link_to booking_path(booking) do %>
             <li> start_time: <%= booking.start_time %>  </li>
             <li> duration: <%= booking.duration %> </li>
             <br>
             <li><%= booking.place.address %></li>
             <li><%= booking.place.country %></li>
             <li><%= booking.place.city %></li>
+            <% end %>
           </div>
         </div>
       </div>
-      <% end %>
+
       <% end %>
     </div>
   </div>

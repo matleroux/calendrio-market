@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-xs-12" >
         <div class="list-unstyled" id="booking-card">
+          <%= link_to place_path(@booking.place) do %>
           <li> <h1> <strong><%= @booking.place.name %></strong> </h1> </li>
+          <% end %>
           <br>
           <li> start_time: <%= @booking.start_time %>  </li>
           <li> duration: <%= @booking.duration %> </li>
