@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+    <h3>Pending</h3>
+    <% @pending_bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+      <div class="col-xs-12" >
+        <div class="list-unstyled" id="booking-card">
+          <h3> <%= booking.place.name %> </h3>
+          <li> start_time: <%= booking.start_time %>  </li>
+          <li> duration: <%= booking.duration %> </li>
+          <li><%= booking.place.address %></li>
+          <li><%= booking.place.country %></li>
+          <li><%= booking.place.city %></li>
+          <li><%= link_to "confirm booking", edit_owner_booking_path(booking), class: "btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="row">
+    <h3>Confirmed</h3>
+    <% @confirmed_bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+      <div class="col-xs-12" >
+        <div class="list-unstyled" id="booking-card">
+          <h3> <%= booking.place.name %> </h3>
+          <li> start_time: <%= booking.start_time %>  </li>
+          <li> duration: <%= booking.duration %> </li>
+          <li><%= booking.place.address %></li>
+          <li><%= booking.place.country %></li>
+          <li><%= booking.place.city %></li>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="row">
+    <h3>Rejected</h3>
+    <% @rejected_bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+      <div class="col-xs-12" >
+        <div class="list-unstyled" id="booking-card">
+          <h3> <%= booking.place.name %> </h3>
+          <br>
+          <li> start_time: <%= booking.start_time %>  </li>
+          <li> duration: <%= booking.duration %> </li>
+          <br>
+          <li><%= booking.place.address %></li>
+          <li><%= booking.place.country %></li>
+          <li><%= booking.place.city %></li>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
