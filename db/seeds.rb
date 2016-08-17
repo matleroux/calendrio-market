@@ -16,11 +16,11 @@ place1 = Place.new(name: "lewagon", city: "Paris", country: "france", )
 place1.user = user1
 place1.save
 
-place2 = Place.new(name: "plug", address: "11 rue du colysée", city: "Sao Paulo", country: "Brésil", max_capacity: 45, price: 500, availability: "lundi au vendredi 8h à 18h", description: "super cool place" )
+place2 = Place.new(name: "plug", address: "av. nova independencia 1200", city: "Sao Paulo", country: "Brésil", max_capacity: 45, price: 500, availability: "lundi au vendredi 8h à 18h", description: "super cool place" )
 place2.user = user2
 place2.save
 
-place3 = Place.new(name: "maison", city: "marly le roi", country: "France")
+place3 = Place.new(name: "maison",address: "av. nova independencia 890", city: "Sao Paulo", country: "Brésil", max_capacity: 150, price: 600, availability: "lundi au mercredi 8h à 18h", description: "plug hyper cool wohou place" )
 place3.user = user3
 place3.save
 
@@ -29,9 +29,9 @@ booking1.place = place1
 booking1.user = user1
 booking1.save
 
-booking2 = Booking.new(start_time: Time.now, duration: 8, number_of_participants: 55, status: "pending")
-booking2.place = place2
-booking2.user = user2
-booking2.save
+booking3 = Booking.new(start_time: Time.now, duration: 8, number_of_participants: 55, status: "pending")
+booking3.place = place3
+booking3.user = user3
+booking3.save
 
 
