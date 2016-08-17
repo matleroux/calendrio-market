@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @pending_bookings = Booking.where(user: current_user).where(status: 0)
+    @confirmed_bookings = Booking.where(user: current_user).where(status: 1)
+    @rejected_bookings = Booking.where(user: current_user).where(status: 2)
   end
   def show
     @booking = Booking.find(params[:id])
@@ -19,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.status = 0
     @booking.save
-    redirect_to root_path
+    redirect_to bookings_path
   end
 
   def edit
