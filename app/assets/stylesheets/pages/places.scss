@@ -1,13 +1,29 @@
+.header-place {
+  color: white;
+  text-align: center;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  justify-content: center;
+  margin: 15px 0px;
+  width: 100vw;
+  height: 45vh;
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+
+
 .place .flex-column {
+  padding: 10px;
+  color: #347A95;
   display: flex;
   flex-direction: column;
-  background-color: grey;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #5EFEC4;
 }
 
 
 #place-description {
   padding: 10px;
-  li {
-    padding: 10px;
-  }
+
 }

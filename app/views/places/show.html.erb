@@ -1,6 +1,35 @@
-<div id="header-place">
-  PHOTO
+<div>
+  <%= link_to '#' , id:"pop" do %>
+    <% if @place.photos.first %>
+      <div class="header-place" style="background-image: url('<%= cl_image_path @place.photos.first.path %>')">
+      </div>
+    <% else %>
+      <div class="header-place" style="background-image: url('<%= image_path 'meeting.jpeg' %>')">
+      </div>
+    <% end %>
+  <% end %>
 </div>
+
+<!-- Creates the bootstrap modal where the image will appear -->
+<% if @place.photos.first %>
+  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+        </div>
+        <div class="modal-body text-center" >
+          <%= cl_image_tag @place.photos.first.path%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="place">
   <div class="wrapper">
     <div class="container-fluid">
@@ -8,7 +37,7 @@
         <div class="col-xs-8">
           <div class="flex-column">
             <ul class="list-unstyled" id="place-description">
-              <li><h2><%= @place.name %></h2></li>
+              <li><h1><%= @place.name %></h1></li>
               <li><%= @place.address %></li>
               <li><%= @place.max_capacity %></li>
             </ul>
@@ -55,3 +84,7 @@
     </div>
   </div>
 </div>
+
+
+
+

@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
   end
 
   def index
+
     @places = Place.where.not(latitude: nil, longitude: nil)
     if params[:search] && params[:search][:city].present?
       @places = @places.where("city like ?", "%#{params[:search][:city]}%")
