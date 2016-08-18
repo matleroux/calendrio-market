@@ -28,6 +28,9 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+gem "omniauth-google-oauth2", "~> 0.2.1"
+
+
 
 group :development, :test do
   gem 'binding_of_caller'
