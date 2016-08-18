@@ -28,6 +28,8 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+gem 'rails-assets-air-datepicker', source: 'https://rails-assets.org'
+
 
 group :development, :test do
   gem 'binding_of_caller'

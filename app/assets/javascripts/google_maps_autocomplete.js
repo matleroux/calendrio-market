@@ -10,6 +10,21 @@ $(document).ready(function() {
       }
     });
   }
+  var options = {
+  types: ['(cities)'],
+ };
+
+  var input = $('#city').get(0);
+
+  if (input) {
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+    google.maps.event.addListener(autocomplete, 'place_changed', onCityChanged);
+    google.maps.event.addDomListener(input , 'keydown', function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault(); // Do not submit the form on Enter.
+      }
+    }
+  )};
 });
 
 function onPlaceChanged() {
@@ -22,6 +37,13 @@ function onPlaceChanged() {
   if (components.country_code) {
     $('#place_country').val(components.country_code);
   }
+}
+
+function onCityChanged() {
+  var city = this.getPlace();
+  var components = getAddressComponents(city);
+
+  $('#city').trigger('blur').val(components.city);
 }
 
 function getAddressComponents(place) {
