@@ -59,7 +59,7 @@
             <% if user_signed_in? %>
             <li><%= f.button :submit, class:'btn btn-primary'%></li>
             <% else %>
-            <%= link_to 'Book', new_user_session_path, class:'btn btn-primary' %>
+            <%= link_to 'Create booking', new_user_session_path, class:'btn btn-primary'%>
             <% end %>
           </ul>
           <% end %>
