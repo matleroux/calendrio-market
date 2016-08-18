@@ -1,9 +1,18 @@
 #booking-card {
   margin: 30px 15px;
   padding: 20px;
+  padding-top: 0px;
   color: #347A95;
   background-color: white;
   border-radius: 10px;
   border: 1px solid #5EFEC4;
+  h2 {
+    font-weight: bold;
+    padding-top: 0px;
+    padding-bottom: 5px;
+  }
+  li {
+    padding: 2px;
+  }
 }
 
