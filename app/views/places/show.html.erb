@@ -1,17 +1,19 @@
 <div>
-  <%= link_to '#' , id:"pop" do %>
-    <% if @place.photos.first %>
-      <div class="header-place" style="background-image: url('<%= cl_image_path @place.photos.first.path %>')">
-      </div>
-    <% else %>
-      <div class="header-place" style="background-image: url('<%= image_path 'meeting.jpeg' %>')">
-      </div>
-    <% end %>
+  <!-- link_to trigger modal -->
+  <%= link_to '#' , id:"modal-image" do %>
+  <% if @place.photos.first %>
+  <div class="header-place" style="background-image: url('<%= cl_image_path @place.photos.first.path %>')">
+  </div>
+  <% else %>
+  <div class="header-place" style="background-image: url('<%= image_path 'meeting.jpeg' %>')">
+  </div>
+  <% end %>
   <% end %>
 </div>
 
 <!-- Creates the bootstrap modal where the image will appear -->
 <% if @place.photos.first %>
+<<<<<<< HEAD
   <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -20,14 +22,29 @@
           <h4 class="modal-title" id="myModalLabel">Image preview</h4>
         </div>
         <div class="modal-body text-center" >
-          <%= cl_image_tag @place.photos.first.path%>
+          <%= cl_image_tag @place.pbthotos.first.path%>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
+=======
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+      </div>
+      <div class="modal-body text-center" >
+        <%= cl_image_tag @place.photos.first.path%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+>>>>>>> master
       </div>
     </div>
   </div>
+</div>
 <% end %>
 
 <div class="place">
@@ -55,34 +72,42 @@
             <li><%= f.input :duration, label:'Duration in hours'%></li>
             <li><%= f.input :number_of_participants %></li>
             <%= f.input :place_id, :as => :hidden, :input_html => { :value => "#{@place.id}" } %>
-            <li><%= f.button :submit, class:'btn btn-primary', title:'Book' %></li>
+<<<<<<< HEAD
+            <li><%= f.button :submit, class:'navbar-wagon-button', title:'Book' %></li>
+=======
+            <% if user_signed_in? %>
+            <li><%= f.button :submit, class:'btn btn-primary'%></li>
+            <% else %>
+            <%= link_to 'Create booking', new_user_session_path, class:'btn btn-primary'%>
+            <% end %>
+>>>>>>> master
           </ul>
           <% end %>
         </div>
+
         <div class="col-xs-12">
           <div id="map" style="width: 100%; height: 50vh;"></div>
-
           <% content_for(:after_js) do %>
-            <%= javascript_tag do %>
-              $(document).on('ready', function() {
-                var handler = Gmaps.build('Google');
-                handler.buildMap({ internal: { id: 'map' } }, function() {
-                  markers = handler.addMarkers(<%= raw @hash.to_json %>);
-                  handler.bounds.extendWith(markers);
-                  handler.fitMapToBounds();
-                  if (markers.length == 0) {
-                    handler.getMap().setZoom(2);
-                  } else if (markers.length == 1) {
-                    handler.getMap().setZoom(14);
-                  }
-                });
-              });
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+          <%= javascript_tag do %>
+          $(document).on('ready', function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
+  });
+  <% end %>
+  <% end %>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 

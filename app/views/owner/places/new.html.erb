@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1>Create a new place</h1>
-      <%= simple_form_for([@owner, @place], url: owner_places_path) do |f| %>
+  <div class="col-xs-12 col-sm-7 col-sm-offset-2">
+      <div id="background-form">
+        <h1>Create a new place</h1>
+        <!-- url: permet de submit sur une url choisit -->
+        <%= simple_form_for([@owner, @place], url: owner_places_path) do |f| %>
+        <!-- locals: {f: f} envoit l'info f dans le partial-->
         <%= render partial: 'form', locals: {f: f} %>
-      <% end %>
-      <br>
-      <%= link_to 'Back', owner_places_path %>
+        <% end %>
+        <br>
+        <%= link_to 'Back', owner_places_path %>
+      </div>
     </div>
   </div>
 </div>
