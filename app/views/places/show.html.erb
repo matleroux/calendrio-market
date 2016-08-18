@@ -13,6 +13,21 @@
 
 <!-- Creates the bootstrap modal where the image will appear -->
 <% if @place.photos.first %>
+<<<<<<< HEAD
+  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+        </div>
+        <div class="modal-body text-center" >
+          <%= cl_image_tag @place.pbthotos.first.path%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+=======
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -25,6 +40,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+>>>>>>> master
       </div>
     </div>
   </div>
@@ -56,11 +72,15 @@
             <li><%= f.input :duration %></li>
             <li><%= f.input :number_of_participants %></li>
             <%= f.input :place_id, :as => :hidden, :input_html => { :value => "#{@place.id}" } %>
+<<<<<<< HEAD
+            <li><%= f.button :submit, class:'navbar-wagon-button', title:'Book' %></li>
+=======
             <% if user_signed_in? %>
             <li><%= f.button :submit, class:'btn btn-primary'%></li>
             <% else %>
             <%= link_to 'Create booking', new_user_session_path, class:'btn btn-primary'%>
             <% end %>
+>>>>>>> master
           </ul>
           <% end %>
         </div>
