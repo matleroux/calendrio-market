@@ -1,53 +1,60 @@
 <div class="wrapper">
   <div class="container-fluid">
     <div class="row">
-    <h3>Pending</h3>
+    <h2>Pending</h2>
     <% @pending_bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
       <div class="col-xs-12" >
         <div class="list-unstyled" id="booking-card">
-          <h3> <%= booking.place.name %> </h3>
-          <li> start_time: <%= booking.start_time %>  </li>
-          <li> duration: <%= booking.duration %> </li>
+          <h2> <%= booking.place.name %> </h2>
+          <!-- .strftime(("%d/%m/%Y")) affiche en days/month/year --> <!-- +booking.duration.hour ajoute l'heure -->
+          <li> <strong><%= booking.start_time.strftime("Date : %d/%m/%Y")  %></strong>  </li>
+          <li> <strong>From: <%= booking.start_time.strftime("%H:%M")%>  to <%= (booking.start_time.+booking.duration.hour).utc.strftime("%H:%M")%>   </strong>  </li>
+          <li> duration: <%= booking.duration %>h </li>
           <li><%= booking.place.address %></li>
           <li><%= booking.place.country %></li>
           <li><%= booking.place.city %></li>
+          <li><h2> Price: <%= booking.place.price*booking.duration %>$</h2></li>
         </div>
       </div>
       <% end %>
       <% end %>
     </div>
     <div class="row">
-    <h3>Confirmed</h3>
+    <h2>Confirmed</h2>
     <% @confirmed_bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
       <div class="col-xs-12" >
         <div class="list-unstyled" id="booking-card">
-          <h3> <%= booking.place.name %> </h3>
-          <li> start_time: <%= booking.start_time %>  </li>
-          <li> duration: <%= booking.duration %> </li>
+          <h2> <%= booking.place.name %> </h2>
+          <!-- .strftime(("%d/%m/%Y")) affiche en days/month/year --> <!-- +booking.duration.hour ajoute l'heure -->
+          <li> <strong><%= booking.start_time.strftime("Date : %d/%m/%Y")  %></strong>  </li>
+          <li> <strong>From: <%= booking.start_time.strftime("%H:%M")%>  to <%= (booking.start_time.+booking.duration.hour).utc.strftime("%H:%M")%>   </strong>  </li>
+          <li> duration: <%= booking.duration %>h </li>
           <li><%= booking.place.address %></li>
           <li><%= booking.place.country %></li>
           <li><%= booking.place.city %></li>
+          <li><h2> Price: <%= booking.place.price*booking.duration %>$</h2></li>
         </div>
       </div>
       <% end %>
       <% end %>
     </div>
     <div class="row">
-    <h3>Rejected</h3>
+    <h2>Rejected</h2>
     <% @rejected_bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
       <div class="col-xs-12" >
         <div class="list-unstyled" id="booking-card">
-          <h3> <%= booking.place.name %> </h3>
-          <br>
-          <li> start_time: <%= booking.start_time %>  </li>
-          <li> duration: <%= booking.duration %> </li>
-          <br>
+          <h2> <%= booking.place.name %> </h2>
+          <!-- .strftime(("%d/%m/%Y")) affiche en days/month/year --> <!-- +booking.duration.hour ajoute l'heure -->
+          <li> <strong><%= booking.start_time.strftime("Date : %d/%m/%Y")  %></strong>  </li>
+          <li> <strong>From: <%= booking.start_time.strftime("%H:%M")%>  to <%= (booking.start_time.+booking.duration.hour).utc.strftime("%H:%M")%>   </strong>  </li>
+          <li> duration: <%= booking.duration %>h </li>
           <li><%= booking.place.address %></li>
           <li><%= booking.place.country %></li>
           <li><%= booking.place.city %></li>
+          <li><h2> Price: <%= booking.place.price*booking.duration %>$</h2></li>
         </div>
       </div>
       <% end %>
