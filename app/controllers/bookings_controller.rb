@@ -20,8 +20,12 @@ class BookingsController < ApplicationController
     @booking.place = @place
     @booking.user = @user
     @booking.status = 0
-    @booking.save
-    redirect_to bookings_path
+    if @booking.save
+      BookingMailer.create(@booking).deliver_now
+      redirect_to bookings_path
+    else
+      render 'places/show'
+    end
   end
 
   def edit

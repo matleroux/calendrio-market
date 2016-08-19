@@ -1,0 +1,15 @@
+<h1>Congrats! You have a new Booking!</h1>
+
+<p>
+Hi, <%= @booking.place.user.first_name %>
+
+</p>
+
+<p>
+  <%= @booking.user.first_name %>, has made a booking at <%= @booking.place.name %> at <%= @booking.start_time%>  for <%=@booking.duration%> hours
+</p>
+
+<p>
+  He will be paying the total of <%= @booking.duration*@booking.place.price %> upon arrival
+
+</p>

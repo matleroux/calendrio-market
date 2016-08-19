@@ -29,6 +29,7 @@ source 'https://rails-assets.org' do
 end
 gem 'rails-assets-air-datepicker', source: 'https://rails-assets.org'
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem "letter_opener", group: :development
 
 
 group :development, :test do
