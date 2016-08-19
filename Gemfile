@@ -27,8 +27,8 @@ gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
-
 gem 'rails-assets-air-datepicker', source: 'https://rails-assets.org'
+gem "omniauth-google-oauth2", "~> 0.2.1"
 
 
 group :development, :test do
