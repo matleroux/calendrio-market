@@ -1,12 +1,12 @@
-<%= render 'header_image', photo: @place.photos.first %>
+<%= render 'places/header_image', photo: @place.photos.first %>
 
   <div class="wrapper">
     <div class="container-fluid">
       <div class="row">
-        <%= render 'place_info', place: @place %>
-        <%= render 'place_booking', place: @place %>
+        <%= render 'places/place_info', place: @place %>
+        <%= render 'places/place_booking', place: @place %>
         <div class="col-xs-12 col-sm-6">
-          <%= render 'google_calendar' %>
+          <%= render 'places/google_calendar' %>
         </div>
         <div class="col-sm-6 col-xs-12">
           <div id="map" style="width: 100%; height: 50vh;"></div>
