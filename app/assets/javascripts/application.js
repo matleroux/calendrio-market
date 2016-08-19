@@ -6,4 +6,5 @@
 //= require attachinary
 //= require underscore
 //= require gmaps/google
+//= require air-datepicker
 //= require_tree .
