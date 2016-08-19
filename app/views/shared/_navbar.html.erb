@@ -9,17 +9,17 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Button Navigation -->
-    <%= link_to 'Add a place', new_owner_place_path, class:'btn btn-primary' %>
+    <%= link_to 'Rent your place', new_owner_place_path, class:'navbar-wagon-button' %>
 
     <!-- link Navigation -->
     <%= link_to 'My reservations', bookings_path, class:'navbar-wagon-item navbar-wagon-link' %>
 
-    <%= link_to 'My bookings', owner_bookings_path, class:'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "My place's bookings", owner_bookings_path, class:'navbar-wagon-item navbar-wagon-link' %>
 
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <%= image_tag current_user.picture, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to 'Modify my profile', edit_user_registration_path %></li>
           <li><%= link_to 'My places', owner_places_path %></li>
