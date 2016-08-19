@@ -1,0 +1,12 @@
+<div class="col-sm-4 col-xs-12">
+  <p> <strong>Price : <%= place.price %> $R</strong></p>
+  <%= simple_form_for @booking do |f| %>
+  <ul class="list-unstyled">
+    <li><%= f.input :start_time, as: :string, input_html: { class:'datepicker-here', data: { timepicker:"true", language:'en'}} %></li>
+    <li><%= f.input :duration, label:'Duration in hours'%></li>
+    <li><%= f.input :number_of_participants %></li>
+    <%= f.input :place_id, :as => :hidden, :input_html => { :value => "#{place.id}" } %>
+    <li><%= f.button :submit, class:'navbar-wagon-button', title:'Book' %></li>
+  </ul>
+  <% end %>
+</div>
