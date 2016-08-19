@@ -4,6 +4,16 @@
       <div id="background-form">
         <h2>Sign up</h2>
 
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-block btn-danger' do %>
+              <span class="fa fa-google"></span> Sign up with Google
+            <% end %>
+
+            <br />
+          <% end -%>
+        <% end -%>
+
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
